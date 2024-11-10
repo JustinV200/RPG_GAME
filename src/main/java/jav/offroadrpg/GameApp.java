@@ -37,6 +37,7 @@ public class GameApp extends GameApplication {
             @Override
             protected void onAction() {
                 player.moveRight();
+                System.out.println("Player Location: " + player.getEntity().getPosition());
             }
         }, KeyCode.D);
 
