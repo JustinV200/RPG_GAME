@@ -11,13 +11,15 @@ public class Background {
     private String music;
     private GameSettings settings;
     private Music currentMusic;
+    private String identifier;
 
 
-    public Background(int[] size, String image, String music, GameSettings settings) {
+    public Background(int[] size, String image, String music, GameSettings settings, String identifier) {
         this.size = size;
         this.image = image;
         this.settings = settings;
         this.music = music;
+        this.identifier = identifier;
         setSettings();
     }
 
@@ -63,4 +65,11 @@ public class Background {
                 .view(texture)
                 .buildAndAttach();
     }
+    public String getIdentifier() {
+        return this.identifier;
+    }
+    public void setIdentifier(String value) {
+        this.identifier = value;
+    }
+
 }

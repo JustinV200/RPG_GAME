@@ -2,7 +2,10 @@ package jav.offroadrpg.Characters;
 
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.texture.Texture;
+
+import jav.offroadrpg.EntityType;
 
 public class Character {
     protected String name;
@@ -21,14 +24,15 @@ public class Character {
         this.speed = speed;
         this.image = image;
     }
-
     public void createEntity() {
         Texture texture = FXGL.getAssetLoader().loadTexture(this.image);
-        texture.setScaleX(0.25); // Scale down the image to 50% of its original width
-        texture.setScaleY(0.25); // Scale down the image to 50% of its original height
+        texture.setScaleX(0.25); // Scale down the image to 25% of its original width
+        texture.setScaleY(0.25); // Scale down the image to 25% of its original height
         this.theguy = FXGL.entityBuilder()
                 .at(position[0], position[1])
                 .view(texture)
+                .with(new CollidableComponent(true))
+                .type(EntityType.CHARACTER)
                 .buildAndAttach();
     }
 
